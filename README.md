@@ -154,11 +154,11 @@ AI 助手会自动调用 `smart_query`，直接返回解决方案：
 列出你可以使用的 MQL5 文档工具
 ```
 
-AI 应该会显示七个工具：`smart_query`、`search`、`get`、`browse`、`log_error`、`list_common_errors`、`manage_error_db`。
+AI 应该会显示十二个工具：`smart_query`、`search`、`get`、`browse`、`diagnose_error`、`list_libraries`、`preprocess_library`、`analyze_code`、`log_error`、`list_common_errors`、`manage_error_db`。
 
 ## 工具列表
 
-本 MCP 服务器当前提供 7 个工具：
+本 MCP 服务器当前提供 **12 个工具**：
 
 ### 核心查询工具
 
@@ -172,26 +172,94 @@ AI 应该会显示七个工具：`smart_query`、`search`、`get`、`browse`、`
   - 节省 80%+ token 消耗
   - 完全本地化，零 API 成本
 - 示例：
-  - "error E512: undeclared identifier ResultCode"（优先从数据库查询）
-  - "OrderSend 函数用法"
-  - "如何使用 CTrade 类下单"
-2) `search` - 搜索文档
+  - “error E512: undeclared identifier ResultCode”（优先从数据库查询）
+  - “OrderSend 函数用法”
+  - “如何使用 CTrade 类下单”
+2) `search` - 搜索文档与代码库
 - 参数：`query`（必填，关键词），`limit`（可选，默认 10）
 - 示例：
   - “搜索与订单发送相关的函数”
   - “查找 ONNX 模型相关的文档”
-2) `get` - 获取文档详情
-- 参数：`filename`（必填，如 `ordersend.htm` 或 `ordersend`）
+  - “搜索外部库文件：mylib_filename”
+3) `get` - 获取文档或代码文件详情
+- 参数：`filename`（必填，如 `ordersend.htm`、`ordersend`、`MyClass.mqh`）
+- 支持类型：`.htm/.html`（HTML文档）、`.md`（Markdown）、`.mq5/.mqh`（代码，原始返回）
 - 示例：
   - “获取 OrderSend 的完整文档”
   - “查看 CTrade 类的详细说明”
+  - “读取 MyExpert.mq5 代码”
 4) `browse` - 浏览分类目录
 - 参数：`category`（可选，如 `trading`, `indicators`, `math` 等）
 - 常见分类：`trading`, `indicators`, `math`, `array`, `string`, `datetime`, `files`, `chart`, `objects`, `onnx`
 
+### 诊断工具（新增 v1.4.0）
+
+5) **`diagnose_error`** - 🔬 编译日志批量诊断
+- 参数：`compile_log`（必填）：MetaEditor 完整编译输出文本
+- 功能：
+  - 自动解析所有 `error/warning` 行，相同错误自动去重
+  - 逐条匹配 18 条 MQL4→MQL5 迁移映射
+  - 查询本地错误数据库中的历史解决方案
+  - 推荐相关参考文档
+- 示例：
+  ```
+  粘贴 MetaEditor 编译窗口的完整输出（可包含多个错误）
+  ```
+6) **`list_libraries`** - 📚 查看已加载资料库
+- 无需参数
+- 功能：列出所有内置库与用户配置的外部库，显示文件数量与路径
+- 未配置外部库时，显示 `config.json` 配置示例
+
+### 智能库分析工具（新增 v1.5.0）
+
+> 这两个工具配合使用，实现"真正理解代码库"而非单纯检索。
+
+7) **`preprocess_library`** - 🤖 预处理外部库知识（一次性）
+- 参数：`library_key`（可选）：指定库的 key；留空则处理所有外部库
+- 前提：需设置环境变量 `ANTHROPIC_API_KEY`
+- 功能：
+  - 调用 Claude Haiku 逐文件分析 `.mqh`，提取类/方法/用途/典型用法
+  - 结果缓存到 `~/.mql5-help-mcp/knowledge/<key>/`（本地 JSON）
+  - 源文件更新后自动重新处理，未变更文件跳过
+  - 显示实时进度与 API 成本估算（100 个文件约 $0.10）
+- 示例：
+  ```
+  preprocess_library("EA31337")      # 处理指定库
+  preprocess_library()               # 处理所有外部库
+  ```
+
+8) **`analyze_code`** - 🧠 智能代码分析（零 API 成本）
+- 参数：
+  - `code`（必填）：需要分析的 MQL5 代码片段（EA、指标或函数均可）
+  - `library_key`（可选）：限定分析范围到指定库；留空则跨所有已预处理库
+- 前提：需先运行 `preprocess_library` 建立本地知识缓存
+- 功能：
+  - 从本地缓存加载结构化库知识（零 API 调用）
+  - 检测用户代码中可用库替换的原始写法（按行定位）
+  - 组装结构化上下文（API 摘要 + 检测结果）返回给 Claude
+  - Claude 基于此上下文给出**具体到行号、可编译**的改进建议
+- 示例：
+  ```
+  analyze_code(my_ea_code)           # 跨所有库分析
+  analyze_code(my_ea_code, "EA31337")# 只对照 EA31337
+  ```
+
+**两步工作流：**
+
+```
+第一步（一次性，花几分钱）：
+  设置 ANTHROPIC_API_KEY → preprocess_library("MyLib")
+  → Haiku 分析 .mqh → 知识缓存到本地
+
+第二步（日常，零成本）：
+  贴入你的 EA 代码 → analyze_code(code)
+  → 本地加载知识 → 返回上下文给 Claude
+  → Claude 输出：第23行 OrderSend → 改用 CTrade::Buy()，示例代码...
+```
+
 ### 错误收集与管理工具（新增 v1.3.0）
 
-5) **`log_error`** - 📝 记录编译错误
+9) **`log_error`** - 📝 记录编译错误
 - 参数：
   
   - `error_code`（必填）：错误代码（如 `E512`、`E308`）
@@ -209,7 +277,7 @@ AI 应该会显示七个工具：`smart_query`、`search`、`get`、`browse`、`
   ```
   记录错误：E512，消息是"undeclared identifier ResultCode"，解决方案是"改用 ResultRetcode()"
   ```
-6) **`list_common_errors`** - 📊 查看高频错误
+10) **`list_common_errors`** - 📊 查看高频错误
 - 参数：`limit`（可选，默认 10）：返回错误数量
 
 - 功能：列出最常见的编译错误（按出现频率排序）
@@ -221,7 +289,7 @@ AI 应该会显示七个工具：`smart_query`、`search`、`get`、`browse`、`
   ```
   显示最常见的 10 个 MQL5 编译错误
   ```
-7) **`manage_error_db`** - 🔧 管理错误数据库
+11) **`manage_error_db`** - 🔧 管理错误数据库
 - 参数：
   
   - `action`（必填）：操作类型
@@ -531,6 +599,47 @@ npm run build
 
 ## 版本历史
 
+### v1.5.0 (2026-06-16) - 智能库分析（B+C 架构）
+
+**🎉 新功能:**
+
+- 🤖 `preprocess_library` 工具 — 调用 Claude Haiku 分析外部库的 `.mqh` 文件，提取类/方法/用途/典型用法，结果缓存到本地 JSON，后续零成本复用。100 个文件约 $0.10
+- 🧠 `analyze_code` 工具 — 接收用户 MQL5 代码，从本地缓存加载库知识，检测代码中可优化的原始写法，组装结构化上下文返回给 Claude，由 Claude 给出具体到行号、可编译的改进建议
+
+**💡 设计理念：**
+
+- **B（预处理）**：Haiku 只在建库知识时调用一次，理解库的语义
+- **C（上下文组装）**：MCP 不做推理，只组装最相关的知识摘要
+- **Claude 做推理**：拿到结构化上下文后，给出精准可用的代码建议
+
+### v1.4.0 (2026-06-16) - 诊断增强 + 外部代码库支持
+
+**🎉 新功能:**
+
+- 🔬 `diagnose_error` 工具 — 粘贴 MetaEditor 完整编译日志，自动解析所有 error/warning 行，去重后逐条匹配迁移映射与历史方案，输出结构化诊断报告
+- 📚 `list_libraries` 工具 — 列出所有已加载资料库（内置 + 外部），显示文件数量与配置路径
+- 🔌 外部代码库支持 — 通过 `~/.mql5-help-mcp/config.json` 挂载任意本地 MQL5 开源库（`.mq5/.mqh`），无需修改源码
+- 🗺️ MQL4→MQL5 迁移映射从 4 条扩展至 18 条，新增 `MarketInfo`、`RefreshRates`、指标句柄、账户信息等
+
+**🔧 Bug 修复:**
+
+- `searchSimilarErrors` 改用 `OR` 逻辑，避免多词查询因 `AND` 过严漏匹配历史错误
+- 文档索引改为 first-wins，确保 `MQL5_HELP` 官方文档优先级不被同名电子书文件覆盖
+- `SmartQueryEngine` 改为模块级单例，不再每次请求重新实例化
+- `stripHtml` 提取为公共 `utils.ts`，消除 `index.ts` / `smart-query.ts` 重复代码
+
+**💡 使用外部库：**
+
+在 `~/.mql5-help-mcp/config.json` 中添加：
+```json
+{
+  "extraLibraries": [
+    { "key": "EA31337", "path": "/path/to/EA31337", "description": "EA31337 framework" }
+  ]
+}
+```
+重启服务后，`search`、`get`、`smart_query` 均可命中外部库中的文件。
+
 ### v1.3.0 (2024-11-25) - 错误收集系统
 
 **🎉 新功能:**
@@ -603,11 +712,15 @@ npm run build
 
 - ✅ [高] 团队错误库共享 - **v1.3.0已实现**
 
+- ✅ [高] 错误自动诊断：分析编译输出并提供解决方案 - **v1.4.0已实现**
+
+- ✅ [中] 上下文感知搜索增强：MQL4→MQL5 迁移映射扩展至18条 - **v1.4.0已实现**
+
+- ✅ [新] 外部开源代码库支持：通过 config.json 挂载 .mq5/.mqh 库 - **v1.4.0已实现**
+
+- ✅ [新] 智能库分析：Haiku 预处理 + 上下文组装，analyze_code 给出精准建议 - **v1.5.0已实现**
+
 - [ ] [高] 代码示例库扩展：更多EA模板与策略示例
-
-- [ ] [高] 错误自动诊断：分析编译输出并提供解决方案
-
-- [ ] [中] 上下文感知搜索增强：更多术语映射
 
 - [ ] [中] 交互式帮助：多轮对话支持
 
@@ -615,7 +728,7 @@ npm run build
 
 - [ ] [中] 错误预测：基于代码模式预警潜在问题
 
-- [ ] [低] 统一索引两本电子书
+- [ ] [低] 统一索引两本电子书（browse 分类支持）
 
 - [ ] [低] 标签系统与版本标注
 
