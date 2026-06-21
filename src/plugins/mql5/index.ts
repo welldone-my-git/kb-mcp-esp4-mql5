@@ -5,7 +5,7 @@
  */
 
 import { DomainPlugin, PluginContext, ToolDefinition, PluginResult, EnrichedQuery } from "../../core/plugin.js";
-import { DiagnoseEngine } from "../../smart-query.js";
+import { DiagnoseEngine } from "../../diagnose-engine.js";
 import { codeStructureAnalyzer } from "../../code-analyzer.js";
 import { MIGRATION_HINTS } from "../../utils.js";
 
