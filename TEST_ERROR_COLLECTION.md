@@ -252,17 +252,17 @@ rm ~/.mql5-help-mcp/mql5_errors.db
 ## 集成测试清单
 
 - [ ] 服务器启动时初始化数据库
-- [ ] `log_error` 工具记录新错误
-- [ ] `log_error` 工具更新已存在错误
-- [ ] `smart_query` 优先从数据库查询
+- [x] `log_error` 工具记录新错误
+- [x] `log_error` 工具更新已存在错误
+- [x] `smart_query` 优先从数据库查询
 - [ ] `smart_query` 数据库未找到时查询文档
-- [ ] `list_common_errors` 正确排序
-- [ ] `manage_error_db` 导出功能
-- [ ] `manage_error_db` 导入功能
-- [ ] `manage_error_db` 匿名导出
-- [ ] `manage_error_db` 统计功能
-- [ ] 服务器关闭时正确清理数据库连接
-- [ ] 相同错误去重并增加计数
+- [x] `list_common_errors` 正确排序
+- [x] `manage_error_db` 导出功能
+- [x] `manage_error_db` 导入功能
+- [x] `manage_error_db` 匿名导出
+- [x] `manage_error_db` 统计功能
+- [x] 服务器关闭时正确清理数据库连接
+- [x] 相同错误去重并增加计数
 - [ ] 错误代码索引提升查询性能
 
 ## 已知限制
