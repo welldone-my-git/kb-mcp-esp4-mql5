@@ -72,6 +72,25 @@ MQL5/Experts/MSNR_CleanCollector.mq5
 MSNR_CleanEdition/MSNR_CleanEdition_SingleFile.mq5
 ```
 
+## RQA Library
+
+路径：[RQA_Library](./RQA_Library/)
+
+定位：
+
+```text
+Nonlinear Dynamics / Recurrence Feature Engine 收藏样例。
+```
+
+核心学习点：
+
+- `CRQAMatrix` 构建 recurrence matrix；
+- `CRQAMetrics` 输出 RR、DET、LAM、ENTR、TREND 等指标；
+- `CRQAEpsilon` 管理 fixed / std fraction / range fraction / RR target；
+- `CRQAWindow` 输出 rolling metric series；
+- `CRQA` facade 提供统一入口；
+- `SRQAResult` 统一承载完整 RQA 指标。
+
 ## Rolling Sharpe
 
 路径：[RollingSharpe](./RollingSharpe/)
@@ -89,6 +108,25 @@ Statistical Analytics 收藏样例，不是交易策略。
 - `CSharpeCalculator.mqh` 负责 Sharpe 与标准误计算；
 - `SSharpeResult` 统一返回结果、置信带和有效标志；
 - `ComputeBar()` 无状态计算适配 MT5 完整重算行为。
+
+## TDA Takens Embedding
+
+路径：[TDA_TakensEmbedding](./TDA_TakensEmbedding/)
+
+定位：
+
+```text
+Quant Research / Geometry Feature Engine 基础库样例。
+```
+
+核心学习点：
+
+- `CTDAPointCloud` 把一维价格序列转成 Takens point cloud；
+- `CTDADistance` 把 point cloud 转成 pairwise distance matrix；
+- `m_points[i * embDim + d]` 平铺点云存储；
+- `m_D[i * N + j]` 平铺距离矩阵；
+- `ENUM_TDA_NORM` 管理 Euclidean / Manhattan / Chebyshev；
+- `Build()` 接口让对象可重复使用。
 
 ## Weekend Gap Indicator
 
