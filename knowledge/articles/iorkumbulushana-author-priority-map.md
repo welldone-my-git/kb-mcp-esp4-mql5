@@ -262,6 +262,12 @@ Benchmark with GetMicrosecondCount().
 
 收藏价值：★★★★☆
 
+已收录：
+
+- 精华：[Generic Object Pool in MQL5：高频指标里的对象池基础设施](./generic-object-pool-high-frequency-mql5.md)
+- 源码：`examples/mql5/ObjectPool/`
+- 架构资产：[Object Pool：热路径对象生命周期管理](../architecture/object-pool.md)
+
 应落地模块：
 
 ```text
@@ -378,6 +384,8 @@ CarryCostEngine
 已收录：
 
 - [Repository Pattern in MQL5：可测试 EA Analytics 架构](./repository-pattern-testable-ea-analytics.md)
+- 源码：`examples/mql5/RepositoryPattern/`
+- 架构资产：[Repository Pattern：交易数据访问抽象](../architecture/repository-pattern.md)
 
 价值：
 

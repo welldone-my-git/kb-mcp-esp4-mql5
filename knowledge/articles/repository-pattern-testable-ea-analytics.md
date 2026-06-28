@@ -8,6 +8,7 @@
 - 发布日期：2026-06-17
 - 分类：MetaTrader 5 / Statistics and analysis
 - 处理日期：2026-06-25
+- 源码目录：[examples/mql5/RepositoryPattern](../../examples/mql5/RepositoryPattern/)
 
 ## 用户评审结论
 

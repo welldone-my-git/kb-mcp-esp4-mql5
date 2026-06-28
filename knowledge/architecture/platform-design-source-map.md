@@ -26,6 +26,7 @@ Live MT5 / 高保真成交生命周期：仍需补资料
 | Event Model | Type-Safe EventBus, Strategy State Machine | 高 | 足够设计事件基类和同步总线 |
 | EventBus | Type-Safe Event Bus | 高 | Python 版可先同步 publish/subscribe |
 | FSM / Context | Strategy State Machine 22950 | 高 | 已提升为平台架构资产 |
+| Repository | Repository Pattern 22958 | 高 | 统一 MT5/Paper/Replay/DuckDB 数据访问 |
 | Strategy Interface | Meta-Labeling RSI/ADX, Transformer, DeepAR | 高 | Strategy 只产出 SignalEvent |
 | RiskEngine | TickValue, CarryCost, CalendarEngine, NewsFilter, BreakEven | 中高 | 够 MVP，后续补 portfolio-level risk |
 | OrderManager | OrderBuilder, Bootstrap TradeHelpers | 高 | 足够生成 OrderEvent |
@@ -39,6 +40,7 @@ Live MT5 / 高保真成交生命周期：仍需补资料
 | State Persistence | State Persistence 22277, Bootstrap SQLite | 中高 | Paper/Live 必需，MVP 可先文件后端 |
 | Live Telemetry | CSV Data Analysis Part 5 | 中高 | CSV 只做 fallback，长期升级 DuckDB / socket sink |
 | Statistical Diagnostics | Rolling Sharpe, Regression Channels | 高 | 可用于策略稳定性和区间覆盖率评估 |
+| Object Pool | Generic Object Pool 22947 | 中 | 只在高频热路径或 MQL5 侧必要时引入 |
 | Notification | Discord Notification | 中高 | 可做 risk/fill alert adapter |
 | Scheduler | Bootstrap Schedule | 高 | 可映射 core/clock.py |
 | API | OpenAlgo 思路待补 | 中 | FastAPI skeleton 足够 |

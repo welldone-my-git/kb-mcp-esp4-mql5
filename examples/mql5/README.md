@@ -343,6 +343,26 @@ Performance Infrastructure / Generic Object Pool。
 - double-release protection；
 - `GetMicrosecondCount()` benchmark。
 
+## Repository Pattern
+
+路径：[RepositoryPattern](./RepositoryPattern/)
+
+定位：
+
+```text
+Data Access Layer / Testable Analytics / Repository Pattern。
+```
+
+核心学习点：
+
+- `STradeRecord` 作为 canonical trade record；
+- `ITradeRepository` 抽象交易历史读取接口；
+- `CLiveTradeRepository` 从 MT5 History API 读取 live 数据；
+- `CMockTradeRepository` 提供确定性离线测试数据；
+- `CAnalyticsEngine` 只依赖 repository interface；
+- `CEquityCurvePanel` 使用 repository 数据绘制 equity curve；
+- 适合迁移为 Broker / Paper / Replay / DuckDB repository 统一接口。
+
 ## Strategy State Machine
 
 路径：[StrategyStateMachine](./StrategyStateMachine/)

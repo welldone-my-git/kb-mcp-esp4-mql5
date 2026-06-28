@@ -28,6 +28,7 @@
 - [EventBus](./mql5/EventBus/) — Type-safe publish-subscribe EA 事件总线，重点是 `IEventListener`、`SEventPayload`、enum-indexed subscription table 和组件解耦。
 - [OrderBuilder](./mql5/OrderBuilder/) — Fluent `MqlTradeRequest` 构造器，重点是链式接口、字段完整性、方向性 SL/TP、stop-level 和 `OrderCheck()` 前置。
 - [ObjectPool](./mql5/ObjectPool/) — 高频对象池基础设施，重点是 templated pool、free-list、O(1) acquire/release、double-release protection 和 benchmark。
+- [Repository Pattern](./mql5/RepositoryPattern/) — 可测试 Trade History 数据访问层，重点是 `ITradeRepository`、Live/Mock 实现、AnalyticsEngine 和 canonical trade record。
 - [Strategy State Machine](./mql5/StrategyStateMachine/) — 显式 EA 状态机样例，重点是 `IState`、`CStrategyContext`、`OnEnter/Evaluate/OnExit` 和 include 循环依赖拆分。
 - [State Persistence](./mql5/StatePersistence/) — EA 重启恢复基础设施，重点是 binary state struct、版本校验、`FILE_COMMON` 和 `OnTradeTransaction` 状态保存。
 - [MTFEngine](./mql5/MTFEngine/) — 多周期闭合 K 线特征引擎，重点是 indicator handle registry、`bar_shift=1`、No-Repaint Guard 和统一释放。

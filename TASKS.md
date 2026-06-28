@@ -38,7 +38,10 @@
 - `knowledge/architecture/fsm-context-state-pattern.md` — FSM / Context / State Pattern：从 EA 状态机升级到平台运行状态机
 - `knowledge/architecture/live-telemetry-pipeline.md` — Live Telemetry Pipeline：Replay / Paper / Live 统一遥测
 - `knowledge/architecture/mtf-feature-engine.md` — MTF Feature Engine：多周期闭合 K 线特征设计
+- `knowledge/architecture/object-pool.md` — Object Pool：热路径对象生命周期管理
 - `knowledge/architecture/platform-design-source-map.md` — Platform Design Source Map：Research → Replay → Paper → Live 资料映射
+- `knowledge/architecture/repository-pattern.md` — Repository Pattern：交易数据访问抽象
+- `knowledge/architecture/statistical-diagnostics.md` — Statistical Diagnostics：策略与特征统计诊断层
 - `knowledge/architecture/state-persistence.md` — State Persistence：平台状态持久化设计
 - `knowledge/articles/adaptive-kalman-smoother-regime-factor.md` — Adaptive Kalman Smoother：把 Kalman Gain 当作市场状态因子
 - `knowledge/articles/breakeven-framework-atr-rrr-mql5.md` — BreakEven Framework：ATR / RRR 保本机制的可插拔架构
