@@ -32,6 +32,7 @@
 - [Strategy State Machine](./mql5/StrategyStateMachine/) — 显式 EA 状态机样例，重点是 `IState`、`CStrategyContext`、`OnEnter/Evaluate/OnExit` 和 include 循环依赖拆分。
 - [State Persistence](./mql5/StatePersistence/) — EA 重启恢复基础设施，重点是 binary state struct、版本校验、`FILE_COMMON` 和 `OnTradeTransaction` 状态保存。
 - [MTFEngine](./mql5/MTFEngine/) — 多周期闭合 K 线特征引擎，重点是 indicator handle registry、`bar_shift=1`、No-Repaint Guard 和统一释放。
+- [Trading Discipline Framework](./mql5/TradingDisciplineFramework/) — LynnChris 交易纪律工程化系列源码，重点是 DailyTradeLimit、SymbolWhitelist、Session/News、AccountRisk、CDisciplineEngine 和 Equity Governance。
 - [Carry Cost Engine](./mql5/CarryCostEngine/) — Swap / Carry 风控组件，重点是 swap 换算、预期持仓成本、是否值得持有和 carry-adjusted lot。
 - [Custom Symbols Stress Tests](./mql5/CustomSymbolsStressTests/) — Custom Symbols / Synthetic Markets 样例，重点是 Renko/Range/Volume bars、synthetic ticks、spread stress test 和 custom order routing。
 - [BreakEven Framework](./mql5/BreakEven_Framework/) — ATR / RRR / Simple 保本机制的可插拔 Trade Management 样例，重点是 Base、Manager、Factory、`MqlParam[]` 参数系统和多态策略。

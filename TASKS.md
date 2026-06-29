@@ -44,6 +44,7 @@
 - `knowledge/architecture/repository-pattern.md` — Repository Pattern：交易数据访问抽象
 - `knowledge/architecture/statistical-diagnostics.md` — Statistical Diagnostics：策略与特征统计诊断层
 - `knowledge/architecture/state-persistence.md` — State Persistence：平台状态持久化设计
+- `knowledge/architecture/trade-governance.md` — Trade Governance：交易纪律与执行前治理层
 - `knowledge/articles/adaptive-kalman-smoother-regime-factor.md` — Adaptive Kalman Smoother：把 Kalman Gain 当作市场状态因子
 - `knowledge/articles/breakeven-framework-atr-rrr-mql5.md` — BreakEven Framework：ATR / RRR 保本机制的可插拔架构
 - `knowledge/articles/chart-object-detector-geometry-layer.md` — Chart Object Detector：从手动画线到 Geometry Layer
@@ -88,6 +89,7 @@
 - `knowledge/articles/iorkumbulushana-author-priority-map.md` — Ushana Kevin Iorkumbul 文章优先级地图
 - `knowledge/articles/local-stop-loss-ea-framework.md` — Local Stop Loss EA：用 HashMap 和对象管理构建 EA Framework
 - `knowledge/articles/lgmm-hidden-regime-detection.md` — LGMM：指标数据中的 Hidden Pattern / Regime Detection
+- `knowledge/articles/lynnchris-author-priority-map.md` — Christian Benjamin（LynnChris）文章优先级地图
 - `knowledge/articles/leak-free-mtf-engine-closed-bar.md` — Leak-Free MTF Engine：闭合 K 线多周期特征引擎
 - `knowledge/articles/linear-regression-prediction-channels.md` — Linear Regression Prediction Channels：统计化回归通道
 - `knowledge/articles/live-csv-streaming-telemetry-pipeline.md` — Live CSV Streaming：实时交易会话遥测管线
@@ -109,6 +111,7 @@
 - `knowledge/articles/strategy-state-machine-mql5.md` — Strategy State Machine：用显式状态替代嵌套 if-else
 - `knowledge/articles/tda-takens-embedding-point-cloud-distance.md` — TDA Takens Embedding：时间序列到几何对象的基础库
 - `knowledge/articles/transformer-trading-sequence-model.md` — Transformer Trading：序列模型研究素材，不是直接 Alpha
+- `knowledge/articles/trading-discipline-framework-lynnchris.md` — Engineering Trading Discipline：交易纪律工程化框架
 - `knowledge/articles/var-multivariate-forecasting-python.md` — VAR：多变量时间序列预测 baseline
 - `knowledge/articles/bootstrap-datetime-sqlite-omega.md` — Omega Python-like Modules：Datetime 与 SQLite 基础设施
 - `knowledge/articles/tickvalue-compare-broker-risk-diagnostics.md` — TickValue Compare：Broker Tick Value 风控诊断工具

@@ -25,6 +25,7 @@ quant_platform implementation
 - [Repository Pattern：交易数据访问抽象](./repository-pattern.md)
 - [Statistical Diagnostics：策略与特征统计诊断层](./statistical-diagnostics.md)
 - [State Persistence：平台状态持久化设计](./state-persistence.md)
+- [Trade Governance：交易纪律与执行前治理层](./trade-governance.md)
 
 ## 后续建议资产
 

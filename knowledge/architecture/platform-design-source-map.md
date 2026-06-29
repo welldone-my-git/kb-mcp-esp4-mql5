@@ -30,6 +30,7 @@ Live MT5 / 高保真成交生命周期：仍需补资料
 | Strategy Interface | Meta-Labeling RSI/ADX, Transformer, DeepAR | 高 | Strategy 只产出 SignalEvent |
 | Model Production | Python + MT5 ONNX Integration 22020 | 高 | Python 训练、ONNX 交付、MQL5 runtime 推理的官方闭环 |
 | RiskEngine | TickValue, CarryCost, CalendarEngine, NewsFilter, BreakEven | 中高 | 够 MVP，后续补 portfolio-level risk |
+| Trade Governance | LynnChris Trading Discipline 系列 | 高 | 统一 symbol/session/news/daily-limit/equity governance |
 | OrderManager | OrderBuilder, Bootstrap TradeHelpers | 高 | 足够生成 OrderEvent |
 | PaperBroker | Python-MT5 Strategy Tester | 中高 | 够 market-order immediate fill |
 | MT5Broker | Python MetaTrader5 API 待补 | 中 | 先 stub |
@@ -62,6 +63,7 @@ knowledge/architecture/
 ├── repository-pattern.md
 ├── object-pool.md
 ├── statistical-diagnostics.md
+├── trade-governance.md
 ├── storage-schema.md        # 待建
 └── replay-engine.md         # 待建
 ```

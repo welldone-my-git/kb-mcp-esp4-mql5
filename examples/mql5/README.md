@@ -377,6 +377,27 @@ EA Framework / Formal State Machine。
 
 - `IState` 生命周期接口；
 - `CStrategyContext` 作为 mediator；
+
+## Trading Discipline Framework
+
+路径：[TradingDisciplineFramework](./TradingDisciplineFramework/)
+
+定位：
+
+```text
+Trade Governance / DisciplineEngine / Execution Guard。
+```
+
+核心学习点：
+
+- Part 1：daily trade cap / daily P&L stop 最小原型；
+- Part 2：`DTL` daily trade limit、dashboard、enforcer；
+- Part 3：`SWL` symbol whitelist、file config、blocked attempt log；
+- Part 4：trading sessions + news blackout；
+- Part 5：account-level risk、SL/TP/R:R 纠偏；
+- Part 6：`CDisciplineEngine` 统一 gate；
+- Part 7：equity drawdown governance、cooldown、state-driven protection；
+- 适合迁移为平台 `TradeGovernance` / `DisciplineEngine`。
 - `OnEnter()` / `Evaluate()` / `OnExit()`；
 - `SetState()` 集中处理状态切换；
 - declaration / implementation 分离解决 include 循环依赖。
