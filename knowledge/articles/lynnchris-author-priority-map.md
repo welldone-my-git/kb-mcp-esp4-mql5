@@ -114,6 +114,18 @@ EA
 
 ### Price Action Part 61 / 62 / 64
 
+已收录：
+
+- Part 62 Parallel Channel：[ParallelChannelGeometry](../../examples/mql5/ParallelChannelGeometry/)
+- Part 64 Manual Trendline Sync：[ManualTrendlineSync](../../examples/mql5/ManualTrendlineSync/)
+- 相关 Part 67 Support / Resistance：[SupportResistanceMonitor](../../examples/mql5/SupportResistanceMonitor/)
+
+已收录精华：
+
+- [Manual Chart Object Sync：把手动画线变成事件源](./manual-chart-object-sync-lynnchris.md)
+- [Channel / Flag Pattern Engine：几何结构检测到 Pattern Event](./channel-flag-pattern-engine-lynnchris.md)
+- [Chart Object Event Monitor](../architecture/chart-object-event-monitor.md)
+
 价值：
 
 - trendline detection；
@@ -132,6 +144,14 @@ Object Event Monitor
 ```
 
 ### Part 69 Flag Pattern Detection
+
+已收录：
+
+- [FlagPatternDetector](../../examples/mql5/FlagPatternDetector/)
+
+已收录精华：
+
+- [Channel / Flag Pattern Engine：几何结构检测到 Pattern Event](./channel-flag-pattern-engine-lynnchris.md)
 
 价值：
 
@@ -165,11 +185,10 @@ Market State / Structure Score / Regime Feature
 ## 后续收录顺序
 
 ```text
-1. Part 64 Manual Trendline Sync
-2. Part 61/62 Trendline/Channel Geometry
-3. Part 69 Pattern Detector
-4. Range Contraction / Market State
-5. TrendMap Python 通讯系列（按需）
+1. Part 61 Trendline Detection（如能定位附件）
+2. Range Contraction / Market State
+3. TrendMap Python 通讯系列（按需）
+4. Chart Projector / UI 工具（按需）
 ```
 
 ## 最终判断

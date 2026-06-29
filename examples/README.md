@@ -26,12 +26,16 @@
 - [Discord Notification](./mql5/DiscordNotification/) — MQL5 到 Discord 的通知桥，重点是 webhook、JSON payload、trade/risk alert 和 Notification Adapter。
 - [Decorator Pattern](./mql5/DecoratorPattern/) — MQL5 指标装饰器链源码，重点是 `IIndicator`、BaseDecorator、Logging/Timing/Threshold wrappers 和确定性级联释放。
 - [EventBus](./mql5/EventBus/) — Type-safe publish-subscribe EA 事件总线，重点是 `IEventListener`、`SEventPayload`、enum-indexed subscription table 和组件解耦。
+- [Flag Pattern Detector](./mql5/FlagPatternDetector/) — LynnChris Part 69 形态检测器，重点是 ActiveFlag lifecycle、ATR 过滤、breakout / invalidation 和 PatternEvent 抽象。
 - [Flag Signal Buffer EA](./mql5/FlagSignalBufferEA/) — LynnChris Part 70 指标信号到 EA 执行样例，重点是 indicator buffers、`iCustom()` / `CopyBuffer()`、闭合 K 线消费和 SignalEvent 契约。
+- [Manual Trendline Sync](./mql5/ManualTrendlineSync/) — LynnChris Part 64 手动画线监控样例，重点是 `OnChartEvent()`、趋势线 registry、touch/breakout/retest 事件。
 - [OrderBuilder](./mql5/OrderBuilder/) — Fluent `MqlTradeRequest` 构造器，重点是链式接口、字段完整性、方向性 SL/TP、stop-level 和 `OrderCheck()` 前置。
 - [ObjectPool](./mql5/ObjectPool/) — 高频对象池基础设施，重点是 templated pool、free-list、O(1) acquire/release、double-release protection 和 benchmark。
+- [Parallel Channel Geometry](./mql5/ParallelChannelGeometry/) — LynnChris Part 62 自动通道检测样例，重点是 SwingPoint、Channel entity、touch count、score、breakout 和 retest。
 - [Repository Pattern](./mql5/RepositoryPattern/) — 可测试 Trade History 数据访问层，重点是 `ITradeRepository`、Live/Mock 实现、AnalyticsEngine 和 canonical trade record。
 - [Strategy State Machine](./mql5/StrategyStateMachine/) — 显式 EA 状态机样例，重点是 `IState`、`CStrategyContext`、`OnEnter/Evaluate/OnExit` 和 include 循环依赖拆分。
 - [State Persistence](./mql5/StatePersistence/) — EA 重启恢复基础设施，重点是 binary state struct、版本校验、`FILE_COMMON` 和 `OnTradeTransaction` 状态保存。
+- [Support Resistance Monitor](./mql5/SupportResistanceMonitor/) — LynnChris Part 67 水平位监控样例，重点是 `OBJ_HLINE` sync、support/resistance 分类、breakout/retest 状态。
 - [MTFEngine](./mql5/MTFEngine/) — 多周期闭合 K 线特征引擎，重点是 indicator handle registry、`bar_shift=1`、No-Repaint Guard 和统一释放。
 - [Trading Discipline Framework](./mql5/TradingDisciplineFramework/) — LynnChris 交易纪律工程化系列源码，重点是 DailyTradeLimit、SymbolWhitelist、Session/News、AccountRisk、CDisciplineEngine 和 Equity Governance。
 - [Carry Cost Engine](./mql5/CarryCostEngine/) — Swap / Carry 风控组件，重点是 swap 换算、预期持仓成本、是否值得持有和 carry-adjusted lot。

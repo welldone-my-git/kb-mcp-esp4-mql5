@@ -254,6 +254,78 @@ Event Feature / Economic Calendar API 使用样例。
 
 路径：[EventBus](./EventBus/)
 
+## Manual Trendline Sync
+
+路径：[ManualTrendlineSync](./ManualTrendlineSync/)
+
+定位：
+
+```text
+Manual Chart Object → Geometry Event Monitor。
+```
+
+核心学习点：
+
+- `OnChartEvent()` 处理按钮点击和对象删除；
+- 扫描手动画出的 `OBJ_TREND`；
+- 将趋势线纳入 `SMonitoredLine` registry；
+- 检测 approaching、touch、breakout、retest；
+- 适合作为 `ChartObjectEventMonitor` 的参考实现。
+
+## Support Resistance Monitor
+
+路径：[SupportResistanceMonitor](./SupportResistanceMonitor/)
+
+定位：
+
+```text
+Horizontal Line → Support / Resistance Event Monitor。
+```
+
+核心学习点：
+
+- 扫描 `OBJ_HLINE`；
+- 将水平线分类为 support / resistance；
+- 记录 breakout / retest 状态；
+- 用 prefix 管理按钮、label、arrow；
+- 适合扩展为 liquidity level / manual level feature。
+
+## Parallel Channel Geometry
+
+路径：[ParallelChannelGeometry](./ParallelChannelGeometry/)
+
+定位：
+
+```text
+Swing Points → Channel Entity → Breakout / Retest Events。
+```
+
+核心学习点：
+
+- `SwingPoint` 与 `Channel` 数据结构；
+- channel slope / width / touch count / score；
+- ATR 过滤通道宽度；
+- channel breakout 和 retest 检测；
+- 可迁移为 channel feature generator。
+
+## Flag Pattern Detector
+
+路径：[FlagPatternDetector](./FlagPatternDetector/)
+
+定位：
+
+```text
+Pattern Detector / Geometry Visualizer。
+```
+
+核心学习点：
+
+- `DrawnFlag` 与 `ActiveFlag` 区分历史对象和活跃形态；
+- ATR flagpole 过滤；
+- retracement / duration 约束；
+- breakout / invalidation lifecycle；
+- 可抽象为 `PatternDetector` / `PatternEvent`。
+
 ## Flag Signal Buffer EA
 
 路径：[FlagSignalBufferEA](./FlagSignalBufferEA/)

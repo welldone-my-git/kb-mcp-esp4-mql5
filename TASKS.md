@@ -36,6 +36,7 @@
 ### 已处理文章
 
 - `knowledge/architecture/fsm-context-state-pattern.md` — FSM / Context / State Pattern：从 EA 状态机升级到平台运行状态机
+- `knowledge/architecture/chart-object-event-monitor.md` — Chart Object Event Monitor：手动画线到 GeometryEvent
 - `knowledge/architecture/live-telemetry-pipeline.md` — Live Telemetry Pipeline：Replay / Paper / Live 统一遥测
 - `knowledge/architecture/model-production-pipeline.md` — Model Production Pipeline：Python Research 到 MQL5 ONNX Runtime
 - `knowledge/architecture/mtf-feature-engine.md` — MTF Feature Engine：多周期闭合 K 线特征设计
@@ -75,6 +76,7 @@
 - `knowledge/articles/mql5-bootstrap-schedule-pythonic-facade.md` — MQL5 Bootstrap：Python Schedule 风格定时任务模块
 - `knowledge/articles/mql5-bootstrap-sqlite3-facade.md` — MQL5 Bootstrap：SQLite3 Inspired 本地结构化存储
 - `knowledge/articles/mql5-bootstrap-position-order-helpers.md` — MQL5 Bootstrap：Positions / Orders 可复用基础库
+- `knowledge/articles/manual-chart-object-sync-lynnchris.md` — Manual Chart Object Sync：把手动画线变成事件源
 - `knowledge/articles/fluent-order-builder-trade-framework.md` — Fluent Order Builder：从 COrderBuilder 到可维护下单框架
 - `knowledge/articles/mql5-objects-iii-chart-event-gui.md` — From Basic to Intermediate: Objects (III)：MQL5 图表事件与对象交互
 - `knowledge/articles/generic-object-pool-high-frequency-mql5.md` — Generic Object Pool in MQL5：高频指标里的对象池基础设施
@@ -88,6 +90,7 @@
 - `knowledge/articles/inside-bar-hypothesis-research-ea.md` — 002 - Inside Bar：把 Price Action 模式当作假设验证器
 - `knowledge/articles/kyles-lambda-market-impact-liquidity-factor.md` — Institutional Kyle's Lambda Market Impact Engine：市场冲击与流动性因子
 - `knowledge/articles/indicator-buffer-ea-execution-contract.md` — Indicator Buffer → EA Execution Contract：指标信号到执行层的 MQL5 契约
+- `knowledge/articles/channel-flag-pattern-engine-lynnchris.md` — Channel / Flag Pattern Engine：几何结构检测到 Pattern Event
 - `knowledge/articles/iorkumbulushana-author-priority-map.md` — Ushana Kevin Iorkumbul 文章优先级地图
 - `knowledge/articles/local-stop-loss-ea-framework.md` — Local Stop Loss EA：用 HashMap 和对象管理构建 EA Framework
 - `knowledge/articles/lgmm-hidden-regime-detection.md` — LGMM：指标数据中的 Hidden Pattern / Regime Detection
