@@ -254,6 +254,43 @@ Event Feature / Economic Calendar API 使用样例。
 
 路径：[EventBus](./EventBus/)
 
+## Flag Signal Buffer EA
+
+路径：[FlagSignalBufferEA](./FlagSignalBufferEA/)
+
+定位：
+
+```text
+Indicator Buffer → EA Execution Contract。
+```
+
+核心学习点：
+
+- indicator 负责检测 Flag pattern 与 breakout；
+- EA 通过 `iCustom()` 获取指标 handle；
+- EA 通过 `CopyBuffer()` 读取 Buy / Sell / metadata buffers；
+- 默认读取闭合 K 线，降低 repaint 与重复交易风险；
+- buffer schema 可映射为平台 `SignalEvent`；
+- 适合作为 `IndicatorSignalAdapter` 的 MQL5 参考实现。
+
+## Weekend Gap Signal Pipeline
+
+路径：[WeekendGapSignalPipeline](./WeekendGapSignalPipeline/)
+
+定位：
+
+```text
+Detection → Indicator → Signal Buffers → EA Execution。
+```
+
+核心学习点：
+
+- Part 72 从 Weekend Gap 状态对象输出基础交易 signal buffers；
+- Part 73 增加多信号记录、TP/SL buffers 和信号去重；
+- Part 74 EA 通过 `iCustom()` / `CopyBuffer()` 读取 entry / TP / SL 并执行；
+- 图形对象用于人工审查，indicator buffers 用于机器执行；
+- 适合沉淀为 `SignalProvider` / `SignalAdapter` / `RiskEngine` 的边界模板。
+
 定位：
 
 ```text

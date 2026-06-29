@@ -23,6 +23,7 @@ quant_platform implementation
 - [Object Pool：热路径对象生命周期管理](./object-pool.md)
 - [Platform Design Source Map：Research → Replay → Paper → Live 资料映射](./platform-design-source-map.md)
 - [Repository Pattern：交易数据访问抽象](./repository-pattern.md)
+- [Signal Buffer Contract：Indicator Buffer 到 SignalEvent 的执行接口](./signal-buffer-contract.md)
 - [Statistical Diagnostics：策略与特征统计诊断层](./statistical-diagnostics.md)
 - [State Persistence：平台状态持久化设计](./state-persistence.md)
 - [Trade Governance：交易纪律与执行前治理层](./trade-governance.md)

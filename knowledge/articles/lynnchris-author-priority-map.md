@@ -64,7 +64,14 @@ TradeGovernance
 
 链接：https://www.mql5.com/en/articles/22607
 
-推荐后续收录。
+已收录源码：
+
+- `examples/mql5/FlagSignalBufferEA/`
+
+已收录精华：
+
+- [Indicator Buffer → EA Execution Contract](./indicator-buffer-ea-execution-contract.md)
+- [Signal Buffer Contract](../architecture/signal-buffer-contract.md)
 
 价值：
 
@@ -80,11 +87,18 @@ EA execution
 
 ### 3. Weekend Gap Part 71–74
 
-已部分收录：
+已收录源码：
 
-- Part 71 Weekend Gap Object Framework 已有相关条目。
+- `examples/mql5/WeekendGapIndicator/`
+- `examples/mql5/WeekendGapSignalPipeline/`
 
-推荐后续完整核对 Part 72–74：
+已收录精华：
+
+- [Weekend Gap Structure Mapping：Chart Object 状态管理框架](./weekend-gap-object-framework.md)
+- [Weekend Gap Signal Pipeline：从对象状态机到 EA Buffer 执行](./weekend-gap-signal-pipeline-lynnchris.md)
+- [Weekend Gap Signal System：市场事件状态机与 EA Buffer 接口](./weekend-gap-state-machine-buffer-interface.md)
+
+链路：
 
 ```text
 Detection
@@ -151,11 +165,11 @@ Market State / Structure Score / Regime Feature
 ## 后续收录顺序
 
 ```text
-1. Part 70 Indicator Buffer → EA
-2. Weekend Gap Part 72–74 完整链路
-3. Part 64 Manual Trendline Sync
-4. Part 61/62 Trendline/Channel Geometry
-5. Part 69 Pattern Detector
+1. Part 64 Manual Trendline Sync
+2. Part 61/62 Trendline/Channel Geometry
+3. Part 69 Pattern Detector
+4. Range Contraction / Market State
+5. TrendMap Python 通讯系列（按需）
 ```
 
 ## 最终判断

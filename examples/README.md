@@ -26,6 +26,7 @@
 - [Discord Notification](./mql5/DiscordNotification/) — MQL5 到 Discord 的通知桥，重点是 webhook、JSON payload、trade/risk alert 和 Notification Adapter。
 - [Decorator Pattern](./mql5/DecoratorPattern/) — MQL5 指标装饰器链源码，重点是 `IIndicator`、BaseDecorator、Logging/Timing/Threshold wrappers 和确定性级联释放。
 - [EventBus](./mql5/EventBus/) — Type-safe publish-subscribe EA 事件总线，重点是 `IEventListener`、`SEventPayload`、enum-indexed subscription table 和组件解耦。
+- [Flag Signal Buffer EA](./mql5/FlagSignalBufferEA/) — LynnChris Part 70 指标信号到 EA 执行样例，重点是 indicator buffers、`iCustom()` / `CopyBuffer()`、闭合 K 线消费和 SignalEvent 契约。
 - [OrderBuilder](./mql5/OrderBuilder/) — Fluent `MqlTradeRequest` 构造器，重点是链式接口、字段完整性、方向性 SL/TP、stop-level 和 `OrderCheck()` 前置。
 - [ObjectPool](./mql5/ObjectPool/) — 高频对象池基础设施，重点是 templated pool、free-list、O(1) acquire/release、double-release protection 和 benchmark。
 - [Repository Pattern](./mql5/RepositoryPattern/) — 可测试 Trade History 数据访问层，重点是 `ITradeRepository`、Live/Mock 实现、AnalyticsEngine 和 canonical trade record。
@@ -49,6 +50,7 @@
 - [TDA Takens Embedding](./mql5/TDA_TakensEmbedding/) — TDA 基础库样例，重点是 Takens embedding、Point Cloud、flattened arrays 和 pairwise distance matrix。
 - [TickValue Compare](./mql5/TickValueCompare/) — Broker 风控诊断工具，重点是三种 Tick Value 对比、Market Watch 扫描和 CSV 导出。
 - [Weekend Gap Indicator](./mql5/WeekendGapIndicator/) — Chart Object Framework 样例，重点是 Entity、状态机、Visual Layer、对象生命周期和 Prefix 命名规范。
+- [Weekend Gap Signal Pipeline](./mql5/WeekendGapSignalPipeline/) — LynnChris Weekend Gap Part 72–74 完整链路，重点是 gap detection、signal buffers、TP/SL buffer schema 和 EA 执行 adapter。
 - [ZScore Source Essence](./mql5/ZScore_Source_Essence/) — Z-Score Signal Engine 样例，重点是 Engine 与 EA/Indicator 解耦、OncePerBar、生命周期管理和统一 `Value()` 接口。
 
 ## Research

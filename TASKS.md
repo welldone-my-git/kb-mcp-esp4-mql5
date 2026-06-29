@@ -42,6 +42,7 @@
 - `knowledge/architecture/object-pool.md` — Object Pool：热路径对象生命周期管理
 - `knowledge/architecture/platform-design-source-map.md` — Platform Design Source Map：Research → Replay → Paper → Live 资料映射
 - `knowledge/architecture/repository-pattern.md` — Repository Pattern：交易数据访问抽象
+- `knowledge/architecture/signal-buffer-contract.md` — Signal Buffer Contract：Indicator Buffer 到 SignalEvent 的执行接口
 - `knowledge/architecture/statistical-diagnostics.md` — Statistical Diagnostics：策略与特征统计诊断层
 - `knowledge/architecture/state-persistence.md` — State Persistence：平台状态持久化设计
 - `knowledge/architecture/trade-governance.md` — Trade Governance：交易纪律与执行前治理层
@@ -86,6 +87,7 @@
 - `knowledge/articles/geometry-interaction-event-layer.md` — Geometry Interaction：从几何对象到事件、特征与执行层
 - `knowledge/articles/inside-bar-hypothesis-research-ea.md` — 002 - Inside Bar：把 Price Action 模式当作假设验证器
 - `knowledge/articles/kyles-lambda-market-impact-liquidity-factor.md` — Institutional Kyle's Lambda Market Impact Engine：市场冲击与流动性因子
+- `knowledge/articles/indicator-buffer-ea-execution-contract.md` — Indicator Buffer → EA Execution Contract：指标信号到执行层的 MQL5 契约
 - `knowledge/articles/iorkumbulushana-author-priority-map.md` — Ushana Kevin Iorkumbul 文章优先级地图
 - `knowledge/articles/local-stop-loss-ea-framework.md` — Local Stop Loss EA：用 HashMap 和对象管理构建 EA Framework
 - `knowledge/articles/lgmm-hidden-regime-detection.md` — LGMM：指标数据中的 Hidden Pattern / Regime Detection
@@ -116,6 +118,7 @@
 - `knowledge/articles/bootstrap-datetime-sqlite-omega.md` — Omega Python-like Modules：Datetime 与 SQLite 基础设施
 - `knowledge/articles/tickvalue-compare-broker-risk-diagnostics.md` — TickValue Compare：Broker Tick Value 风控诊断工具
 - `knowledge/articles/universal-breakout-study-research-framework.md` — Universal Breakout Study：Session Range 突破策略研究框架
+- `knowledge/articles/weekend-gap-signal-pipeline-lynnchris.md` — Weekend Gap Signal Pipeline：从对象状态机到 EA Buffer 执行
 - `knowledge/articles/weekend-gap-state-machine-buffer-interface.md` — Weekend Gap Signal System：市场事件状态机与 EA Buffer 接口
 - `knowledge/articles/weekend-gap-object-framework.md` — Weekend Gap Structure Mapping：Chart Object 状态管理框架
 - `knowledge/articles/zscore-object-oriented-engine-mql5.md` — Z-Score OOP Engine：EA / Indicator 共用的统计信号引擎
