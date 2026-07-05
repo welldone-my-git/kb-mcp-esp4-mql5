@@ -81,6 +81,7 @@
 - [RNA：从 Recurrence Matrix 到复杂网络特征](./rna-recurrence-network-analysis.md)
 - [Python-MetaTrader 5 Strategy Tester 系列：Python 研究与 RL 环境基础](./python-mt5-strategy-tester-series.md)
 - [Patrick Murimi Njoroge：AFML / Feature Engineering 研究路线图](./patrick-njoroge-afml-research-map.md)
+- [Structural Break Tests (CSW & SADF)：计量经济学→Feature→RL 的结构断裂检验架构 (A 级)](./structural-break-tests-csw-sadf.md)
 - [Python + MetaTrader 5：Research → Production ONNX 流程](./python-mt5-onnx-research-production.md)
 - [Prophet：带趋势/季节性/日历效应的预测 baseline](./prophet-calendar-forecasting-python.md)
 - [RQA Library：Recurrence Quantification Analysis 完整分析组件](./rqa-complete-analysis-library-mql5.md)
