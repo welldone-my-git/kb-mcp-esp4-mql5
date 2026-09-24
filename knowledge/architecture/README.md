@@ -16,6 +16,11 @@ quant_platform implementation
 
 ## 已收录架构资产
 
+- [Session Quality Layer：以 broker-specific 机会/成本/路径特征构建时段门控](./session-quality-layer.md)
+- [Liquidity Sweep Event Grammar：将 Swing → Sweep → Confirmation 建模为可审计 Episode](./liquidity-sweep-event-grammar.md)
+- [Volatility Expansion Gate：让波动率过滤已有 Setup，并验证增量价值](./volatility-expansion-gate.md)
+- [Signal Authority Gate：独立评估信号是否被采用及其授权强度](./signal-authority-gate.md)
+- [Session Episode Grammar：从 Session Sweep 到 Projection Gate 的可回放状态机](./session-episode-grammar.md)
 - [AFML Feature Engine：从 OHLCV 到机器学习特征矩阵](./afml-feature-engine.md)
 - [AFML Research Validation：Sequential Bootstrap / Purged CV / CPCV](./afml-research-validation.md)
 - [FSM / Context / State Pattern：从 EA 状态机升级到平台运行状态机](./fsm-context-state-pattern.md)

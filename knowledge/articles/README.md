@@ -13,6 +13,11 @@
 
 ## 已收录
 
+- [Gold Hour Profile：从 Movement / Spread 到 Session Quality](./gold-hour-profile-session-quality.md)
+- [SMC Liquidity Sweep Scalper：从 EA 规则还原为事件语法](./smc-liquidity-sweep-scalper-event-grammar.md)
+- [Defining your Edge Part 5：GARCH Volatility Gate 与 Volatility-Scaled LSTM](./garch-volatility-gate-volscaled-lstm.md)
+- [LLM + RL Signal Authority Gate：从预测器转向信号授权](./llm-rl-signal-authority-gate.md)
+- [Session Manipulation and Algorithmic Reaction Tracker：Session Episode Grammar](./session-manipulation-episode-grammar.md)
 - [Adaptive Kalman Smoother：把 Kalman Gain 当作市场状态因子](./adaptive-kalman-smoother-regime-factor.md)
 - [Advanced Pattern Geometry：Wedge / Fibonacci / Head & Shoulders](./advanced-pattern-geometry-lynnchris.md)
 - [BreakEven Framework：ATR / RRR 保本机制的可插拔架构](./breakeven-framework-atr-rrr-mql5.md)

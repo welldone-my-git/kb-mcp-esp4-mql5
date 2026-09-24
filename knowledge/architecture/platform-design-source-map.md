@@ -28,11 +28,15 @@ Live MT5 / 高保真成交生命周期：仍需补资料
 | FSM / Context | Strategy State Machine 22950 | 高 | 已提升为平台架构资产 |
 | Geometry Event | LynnChris Manual Trendline / Support Resistance / Geometry Interaction | 高 | 手动画线和水平位可转 GeometryEvent / Feature |
 | Pattern Event | LynnChris Wedge / Flag / H&S / Channel | 高 | 形态不直接交易，先转 PatternEvent 和 context features |
-| Market Structure Event | LynnChris BOS/ChoCH, Liquidity Sweep, ORB; Bikeen Market Structure Sentinel | 高 | Swing / BOS / CHOCH / Sweep / S/R 结构事件进入 Regime / Meta Label / Signal |
+| Market Structure Event | LynnChris BOS/ChoCH, Liquidity Sweep, ORB; Bikeen Market Structure Sentinel; S.M.A.R.T. Session Episode | 高 | Swing / BOS / CHOCH / Sweep / Session→MSS→FVG→Retest episode 进入 Regime / Meta Label / Projection Gate |
+| Liquidity Sweep Grammar | CodeBase 77094 SMC Liquidity Sweep Scalper | 中高 | 源码可还原为 Swing→Sweep/Reclaim→OB→独立确认→质量 Gate；MVP 单 swing / 单仓位，需修正 HTF 未闭合 bar、fail-open 与无极值失效等行为 |
 | Microstructure Feature | LynnChris Tick VWAP/Imbalance, AFML microstructure | 高 | TickEvent 到 spread/flow/VWAP 特征与执行过滤 |
 | Repository | Repository Pattern 22958 | 高 | 统一 MT5/Paper/Replay/DuckDB 数据访问 |
 | Research Methodology | Maxim Romanov scientific approach / discretization / trend-flat / self-adapting series | 高 | 足够定义 hypothesis、sampling、state、adaptive parameter policy |
 | Strategy Interface | Meta-Labeling RSI/ADX, Transformer, DeepAR | 高 | Strategy 只产出 SignalEvent |
+| Signal Authority Gate | Article 21182 的轻量 Q-learning USE/SKIP/REDUCE 元决策器；Session Episode Projection Gate | 中 | 先做确定性、可回放 Gate；将方向预测器与信号授权分离。RL 仅作候选 policy，需样本外评估与 shadow 阶段 |
+| Volatility / Setup Gate | Defining your Edge Part 5：setup score + GARCH expansion + optional LSTM | 中高 | 作为 Setup 的环境门控；并列验证 GARCH/ATR/RV/range 增量，LSTM 必须证明 OOS 增益后才保留 |
+| Session Quality / Execution Gate | Gold Hour Profile CodeBase 77073; PathEfficiency / SignedNetMove; Tick microstructure features | 中高 | 原脚本以 M1 平均 range × 60 / 平均 spread 做 broker-specific profile；升级需加入 path directionality、成本覆盖、timezone/DST、coverage 与 OOS Gate 验证 |
 | Model Production | Python + MT5 ONNX Integration 22020 | 高 | Python 训练、ONNX 交付、MQL5 runtime 推理的官方闭环 |
 | Python Bridge | LynnChris Part 34–36, Python-MT5 Strategy Tester | 高 | MQL5 WebRequest / Python MT5 API / Flask signal service |
 | Signal Adapter | LynnChris Part 70/74 Indicator Buffer → EA | 高 | 指标输出 buffer，EA 转换为 SignalEvent / OrderEvent |
