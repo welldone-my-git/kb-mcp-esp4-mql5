@@ -3,14 +3,14 @@ MIT License
 Copyright (c) 2025 MQL5 Help MCP Contributors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+of the original software code in this repository, to deal in the Software
+without restriction, including without limitation the rights to use, copy,
+modify, merge, publish, distribute, sublicense, and/or sell copies of the
+Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -20,11 +20,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
----
+## Scope
 
-THIRD-PARTY CONTENT NOTICE:
-
-The MQL5 documentation files included in the MQL5_HELP directory are provided
-for reference purposes. These documentation files are copyrighted by MetaQuotes
-Ltd. and are subject to their own license terms. This software does not claim
-ownership of the MQL5 documentation content.
+This MIT license applies only to original software code authored for this
+project, including `src/`, `test/`, `scripts/`, and compiled output derived
+from those files. It does not grant rights to third-party documentation,
+books, article text, source-code attachments, images, or other materials in
+this repository. Those materials remain subject to the terms of their
+respective rights holders. See `THIRD_PARTY_NOTICES.md`.

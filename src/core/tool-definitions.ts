@@ -24,7 +24,7 @@ export const CORE_TOOL_DEFINITIONS: ToolDefinition[] = [
       },
       {
         name: "search",
-        description: "搜索MQL5文档（函数名、类名、关键字）。返回文档列表，需再调用get获取内容。如需直接答案请用smart_query。",
+        description: "搜索MQL5文档及研究知识库（函数名、类名、标题和 Markdown 正文关键词）。返回文档列表，需再调用get获取内容。如需直接答案请用smart_query。",
         inputSchema: {
           type: "object",
           properties: {
@@ -273,4 +273,3 @@ export const CORE_TOOL_DEFINITIONS: ToolDefinition[] = [
         },
       },
   ];
-

@@ -21,6 +21,7 @@ export let activePlugin: DomainPlugin | null = null;
 export let docIndex: Map<string, DocEntry> | null = null;
 let nameIndex: Map<string, DocEntry> | null = null;
 export let queryEngine: SmartQueryEngine | null = null;
+let researchContentIndex: Array<{ key: string; entry: DocEntry; content: string }> | null = null;
 
 // 支持的文件扩展名
 const DOC_EXTS  = /\.(htm|html|md)$/i;
@@ -162,6 +163,48 @@ function keywordSearch(
   return results;
 }
 
+// The research corpus is small enough to search directly. Cache its Markdown
+// text once, so normal keyword queries can find concepts inside article notes
+// rather than only matching their filenames.
+async function searchResearchContent(
+  query: string,
+  index: Map<string, DocEntry>
+): Promise<Array<{ key: string; entry: DocEntry; score: number }>> {
+  const normalizedQuery = query.trim().toLowerCase();
+  if (!normalizedQuery) return [];
+
+  if (!researchContentIndex) {
+    const unique = new Map<string, { key: string; entry: DocEntry }>();
+    for (const [key, entry] of index.entries()) {
+      if (entry.repo === "Research_Knowledge" && /\.md$/i.test(entry.absPath) && !unique.has(entry.absPath)) {
+        unique.set(entry.absPath, { key, entry });
+      }
+    }
+
+    researchContentIndex = await Promise.all(
+      [...unique.values()].map(async ({ key, entry }) => ({
+        key,
+        entry,
+        content: (await fs.readFile(entry.absPath, "utf-8")).toLowerCase(),
+      }))
+    );
+  }
+
+  const terms = normalizedQuery.match(/[a-z0-9_]+|[\u3400-\u9fff]+/g) ?? [];
+  if (terms.length === 0) return [];
+
+  const results: Array<{ key: string; entry: DocEntry; score: number }> = [];
+  for (const doc of researchContentIndex) {
+    const matchedTerms = terms.filter(term => doc.content.includes(term)).length;
+    if (matchedTerms !== terms.length) continue;
+
+    const phraseMatch = doc.content.includes(normalizedQuery);
+    const score = phraseMatch ? 0.96 : 0.55 + 0.35 * (matchedTerms / terms.length);
+    results.push({ key: doc.key, entry: doc.entry, score });
+  }
+  return results;
+}
+
 // 匹配 "undeclared identifier 'name'" 或 "undeclared identifier name"
 const UNDECLARED_RE = /undeclared\s+identifier\s+'?"?([a-z_][a-z0-9_]*)'?"?/i;
 const UNDECLARED_RE_NQ = /undeclared\s+identifier\s+([a-z_][a-z0-9_]*)/i;
@@ -191,11 +234,20 @@ function buildSmartHints(query: string): string[] {
 export async function searchDocs(query: string, limit: number = 10): Promise<string> {
   const index = await buildIndex();
   const kwResults = keywordSearch(query, index);
+  const contentResults = await searchResearchContent(query, index);
+  const mergedKeywordResults = new Map<string, { key: string; entry: DocEntry; score: number }>();
+  for (const result of [...kwResults, ...contentResults]) {
+    const existing = mergedKeywordResults.get(result.entry.absPath);
+    if (!existing || result.score > existing.score) {
+      mergedKeywordResults.set(result.entry.absPath, result);
+    }
+  }
+  const allKeywordResults = [...mergedKeywordResults.values()].sort((a, b) => b.score - a.score);
   const smartHints = buildSmartHints(query);
   const exact = index.get(query.toLowerCase());
 
   let searchMode = "关键词";
-  let finalResults: Array<{ key: string; entry: DocEntry; displayScore?: number }> = kwResults.slice(0, limit);
+  let finalResults: Array<{ key: string; entry: DocEntry; displayScore?: number }> = allKeywordResults.slice(0, limit);
 
   // 混合搜索：embedding 已配置且 vectorStore 有数据
   const embCfg = await getEmbeddingConfig();
@@ -203,7 +255,7 @@ export async function searchDocs(query: string, limit: number = 10): Promise<str
     const queryVec = await ollamaEmbed(embCfg.url, embCfg.model, query);
     if (queryVec) {
       const semHits = semanticSearch(queryVec, vectorStore, limit * 2);
-      const kwHits = kwResults.map(r => ({ key: r.key, score: r.score }));
+      const kwHits = allKeywordResults.map(r => ({ key: r.key, score: r.score }));
       const merged = hybridMerge(kwHits, semHits, limit);
       finalResults = merged.map(h => ({
         key: h.key,

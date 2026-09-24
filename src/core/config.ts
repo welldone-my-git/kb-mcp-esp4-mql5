@@ -34,6 +34,8 @@ export const DEFAULT_BUILTIN: SourceConfig[] = [
   { key: "MQL5_HELP",            path: path.resolve(__dirname, "..", "..", "MQL5_HELP"),            builtin: true, priority: 1 },
   { key: "MQL5_Algo_Book",       path: path.resolve(__dirname, "..", "..", "MQL5_Algo_Book"),       builtin: true, priority: 2 },
   { key: "Neural_Networks_Book", path: path.resolve(__dirname, "..", "..", "Neural_Networks_Book"), builtin: true, priority: 3 },
+  { key: "Research_Knowledge",   path: path.resolve(__dirname, "..", "..", "knowledge"),              builtin: true, priority: 4,
+    description: "MQL5 article notes and reusable architecture designs" },
 ];
 
 export const BUILTIN_ROOTS = DEFAULT_BUILTIN;

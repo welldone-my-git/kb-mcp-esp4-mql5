@@ -4,20 +4,23 @@
 
 **通用知识库 MCP 服务器**，默认内置 MQL5 文档（4500+ 官方文档 + 两本电子书），同时支持通过 `domain_plugin` 加载任意领域插件（已内置 `mql5`、`java`），通过 `sources[]` 接入 HTML/Markdown/PDF 文档，以及通过 Ollama 实现本地语义搜索。让你的 AI 编程助手（Claude Code、Cursor、Copilot 等）直接访问私有知识库，数据不出内网。
 
+本仓库以 MQL5 文档检索为主，`knowledge/` 保存文章研究摘要与架构笔记。股票量化研究库如需独立维护，应使用单独仓库和自己的资料源配置。
+
 ## 有哪些资料被内置？
 
 - 官方 MQL5 文档：`MQL5_HELP/`（4500+ .htm）
 - MQL5 算法交易手册（HTML）：`MQL5_Algo_Book/`
 - 神经网络与机器学习手册（HTML）：`Neural_Networks_Book/`
+- 研究文章与架构笔记：`knowledge/`（Markdown，默认索引；关键词支持正文检索，也可通过 `get` 和语义索引读取）
 
-> 说明：两本电子书版权归原作者所有，仅作为学习参考随仓库分发；当前版本已将它们纳入统一索引，可通过 `search` 检索，并通过 `browse algo_book`、`browse neural_book` 浏览目录。
+> 说明：本项目用于个人/内部研究，不对第三方文档、书籍或文章附件进行再分发。`knowledge/` 以自有摘要和设计笔记为主；第三方材料仍受各自权利人条款约束。仓库 MIT 许可仅适用于本项目原创软件代码，详见 [LICENSE](LICENSE) 和 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
 
 ## 面向问题的能力（结合用户建议重构）
 
 当前可用 + 规划中功能一览：
 
 - 搜索文档（已提供）
-  - 通过函数名、类名或关键词快速定位官方文档
+  - 通过函数名、类名或关键词快速定位官方文档、研究摘要和架构笔记
   - 覆盖交易函数、指标、标准库、ONNX 等常用主题
 - 智能匹配（已提供基础能力）
   - 支持精确/模糊匹配，兼容常见类名变体（如 CTrade/Trade）
@@ -527,6 +530,7 @@ knowledge-mcp/
 ├── MQL5_HELP/                 # 官方 MQL5 文档（4500+ .htm）
 ├── MQL5_Algo_Book/            # 算法交易手册（HTML 电子书）
 ├── Neural_Networks_Book/      # 神经网络/机器学习手册（HTML 电子书）
+├── knowledge/                 # 研究文章摘要与架构笔记（默认索引，含收录状态规范）
 ├── test/                      # 单元测试与 MCP 冒烟测试
 ├── .github/workflows/ci.yml   # Node 20/22 持续集成
 ├── package.json
@@ -967,9 +971,8 @@ manage_knowledge export → 分享给团队 → import → 他人零成本获取
 
 ## 许可证与鸣谢
 
-- 许可证：MIT（详见 [LICENSE](LICENSE)）
-- MQL5文档版权归 MetaQuotes Ltd. 所有，本工具仅供开发辅助使用
-- 文档版权：MQL5 官方文档归 MetaQuotes Ltd. 所有；两本电子书版权归原作者所有
+- 原创软件代码：MIT（范围见 [LICENSE](LICENSE)）
+- 第三方文档、书籍、文章源码和图片：各自权利人保留权利，详见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)
 - 致谢：Model Context Protocol、MQL5 社区与贡献者
 
 ---

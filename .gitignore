@@ -43,6 +43,7 @@ ENV/
 *.tmp
 *.temp
 nul
+/download/
 
 # Screenshots and images (exclude from documentation folder)
 MQL5_HELP/*.jpg

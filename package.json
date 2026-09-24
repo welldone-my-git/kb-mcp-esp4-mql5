@@ -4,7 +4,7 @@
   "description": "General-purpose knowledge base MCP server — domain plugins, semantic search, PDF/HTML/Markdown ingestion",
   "type": "module",
   "author": "welldone-my-git",
-  "license": "MIT",
+  "license": "SEE LICENSE IN LICENSE",
   "repository": {
     "type": "git",
     "url": "https://github.com/welldone-my-git/kb-mcp-esp4-mql5.git"
@@ -28,8 +28,10 @@
     "MQL5_HELP/",
     "MQL5_Algo_Book/",
     "Neural_Networks_Book/",
+    "knowledge/",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md"
   ],
   "bin": {
     "knowledge-mcp": "./build/index.js",
